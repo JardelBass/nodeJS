@@ -4,10 +4,22 @@ function mediaAluno(nome,nt1,nt2){
     const nota2 = parseFloat(nt2);
     const media = parseFloat((nota1 + nota2) / 2);
 
+    const aluno = {
+        "nome": nomeAluno,
+        "media": media,
+        "aprov": "" 
+        };
+
     if(media >= 7){
-        return "Aluno "+nomeAluno+" apreovado com media: "+media;
+        aluno.nome = nomeAluno;
+        aluno.media = media;
+        aluno.aprov ="Aprovado";
+        return  aluno;
     }else{
-        return "aluno " +nomeAluno+" reprovado com media: "+media;
+        aluno.nome = nomeAluno;
+        aluno.media = media;
+        aluno.aprov ="Reprovado";
+        return  aluno;
     }
 }
 

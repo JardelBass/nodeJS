@@ -29,3 +29,20 @@ input{
 h1{
     font-size: 20px;
 }
+
+.tbAluno{
+    margin-left: auto;
+    margin-right: auto;
+    width: 450px;
+    height: 300px;
+}
+
+.tbAluno td{
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: aliceblue;
+}
+.tbAluno h1{
+    text-align: center;
+}
