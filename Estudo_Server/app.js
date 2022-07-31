@@ -3,7 +3,8 @@ const app = express();
 const path =require("path");
 const bodyParser = require("body-parser");
 const handlebars = require("express-handlebars");
-const soma = require(__dirname+"/public/lib/caculadora.js");
+const soma = require("./models/media.js");
+const AddAluno = require('./models/Addaluno.js');
 
 //configuração
     //Declaração do meu diretorio Public
@@ -27,6 +28,22 @@ const soma = require(__dirname+"/public/lib/caculadora.js");
     });
 
     app.post('/add',function(req,res){
+        const media = (soma.mediaAluno(req.body.not1, req.body.not2));
+        AddAluno.create({
+            nome:  req.body.nome,
+            nota1:  req.body.not1,
+            nota2:  req.body.not2,
+            media: media
+
+        }).then(function(){
+            res.send("Add aluno ok");
+        }).catch(function(error){
+            res.send("Add aluno ERROR"+error);
+        });
+    });
+
+    /*
+    app.post('/add',function(req,res){
         const nomeAluno = req.body.nome;
         const nota1 = parseInt(req.body.not1);
         const nota2 = parseInt(req.body.not2);
@@ -41,7 +58,7 @@ const soma = require(__dirname+"/public/lib/caculadora.js");
 
         //res.send("Aluno: "+aprovacao.nome);
     });
-
+    */
 
 
 
